@@ -1,98 +1,63 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
+import { GlobalStyles } from "@/GlobalStyles";
 
 export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+  // Exemplo de dados de perfil; substitua por dados reais conforme necessário
+  const profile = {
+    nome: "",
+    sobrenome: "",
+    idade: undefined,
+    instituicao: "",
+    curso: "",
+  };
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+  return (
+    <View style={GlobalStyles.container}>
+      <Text style={GlobalStyles.title}>Bem-vindo ao App de Perfil</Text>
+      <View style={GlobalStyles.card}>
+        <Text
+          style={[
+            GlobalStyles.text,
+            { textAlign: "center", color: "#DC143C", fontSize: 20 },
+          ]}
+        >
+          Bem vindo ao aplicativo! Use a aba "Perfil" para visualizar e editar
+          suas informações pessoais.
+        </Text>
+      </View>
+      <View style={GlobalStyles.card}>
+        <Image
+          source={{
+            uri: "https://static.vecteezy.com/ti/vetor-gratis/p1/48972540-rosa-do-utilizador-icone-arredondado-perfil-icone-vetor.jpg",
+          }}
+          style={{ width: 150, height: 150, alignSelf: "center" }}
+        />
+        <Text>
+          <Text style={GlobalStyles.label}>
+          O que é o PerfilApp? Imagine que você tem uma ficha cadastral digital sempre à mão,
+          no seu celular. Ele é como uma carteira digital onde você guarda:
+          </Text>
+
+          <View>
+            <Text style={GlobalStyles.text}>
+              • Nome
+            </Text>
+            <Text style={GlobalStyles.text}>
+              • Sobrenome
+            </Text>
+            <Text style={GlobalStyles.text}>
+              • Idade
+            </Text>
+            <Text style={GlobalStyles.text}>
+              • Instituição
+            </Text>
+            <Text style={GlobalStyles.text}>
+              • Curso
+            </Text>
+          </View>
+        </Text>
+      </View>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});

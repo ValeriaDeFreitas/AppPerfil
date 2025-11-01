@@ -1,0 +1,123 @@
+import { StyleSheet } from 'react-native';
+
+export const GlobalStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#FDEBD0',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#DC143C',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  card: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+    marginBottom: 15,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#DC143C',
+    marginBottom: 5,
+  },
+  text: {
+    fontSize: 16,
+    color: '#DC143C',
+    marginBottom: 15,
+    padding: 10,
+    backgroundColor: '#F7CAC9',
+    borderRadius: 5,
+  },
+  button: {
+    backgroundColor: '#F75270',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#bdc3c7',
+    padding: 12,
+    borderRadius: 8,
+    fontSize: 16,
+    marginBottom: 15,
+    backgroundColor: '#F7CAC9',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    padding: 20,
+  },
+  modalContent: {
+    backgroundColor: '#fff',
+    padding: 25,
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#DC143C',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  cancelButton: {
+    backgroundColor: '#DC143C',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    flex: 1,
+    marginRight: 10,
+  },
+  saveButton: {
+    backgroundColor: '#27ae60',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    flex: 1,
+    marginLeft: 10,
+  },
+});
+
+export const colors = {
+  primary: '#3498db',
+  secondary: '#2c3e50',
+  success: '#27ae60',
+  danger: '#e74c3c',
+  warning: '#f39c12',
+  info: '#3498db',
+  light: '#ecf0f1',
+  dark: '#34495e',
+};
